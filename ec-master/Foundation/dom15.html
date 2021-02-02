@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+
+        <div>
+            <input type="text" id="input">
+        </div>
+
+        <div>
+            <button onclick="upper()">Upper</button>
+        </div>
+
+        <div id="result" class="dashed"></div>
+
+    </div>
+
+    <script>
+
+        function upper() {
+
+            const input = document.getElementById("input").value
+
+
+            if (input === "") {
+
+                document.getElementById("result").innerText = "Field is empty :("
+
+            } else {
+                let options = input.split(':')
+                if (options.length === 1) {
+                    document.getElementById("result").innerText = "Insert more than one word"
+                } else {
+
+                    let result = []
+
+                    for (let x of options){
+                        result.push(x.toUpperCase())
+                    }
+
+                    let star = result.join('*')
+                    
+                    document.getElementById("result").innerText = star
+                }
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

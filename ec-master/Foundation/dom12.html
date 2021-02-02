@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            <button onclick="printHello()">Toggle On Off</button>
+        </div>
+
+        <div id="result" class="dashed"></div>    
+    </div>
+
+    <script>
+
+        let number = 1
+        document.getElementById("result").innerText = "Off"
+        function printHello(){
+            if ( number == 1){
+                number++
+                document.getElementById("result").innerText = "On"
+            }else if ( number == 2){
+                number--
+                document.getElementById("result").innerText = "Off"
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
