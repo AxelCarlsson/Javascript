@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>KAB</title>
+</head>
+
+<body>
+
+    <div class="row">
+        <div>
+            <input id="abbreviation" value="apt." />
+        </div>
+
+        <div>
+            <button onclick="lookUp()">Look up</button>
+        </div>
+        <div id="word" class="dashed">
+        </div>
+    </div>
+
+    <script>
+        
+        const dictionary = new Map()
+
+        function setupDictionary(){
+            
+    
+            dictionary.set("apt", "Apartment")
+            dictionary.set("dept", "Department")
+            dictionary.set("min", "Minimum")
+            dictionary.set("tel", "Telephone")
+            dictionary.set("tlf", "Telephone")
+
+
+        }
+
+        function removeDotIfExists(text){
+
+            if (text.endsWith(".")) {
+                let lastIndex = text.length - 1
+                text = text.substring(0, lastIndex)
+            }
+
+            return text
+        }
+
+        function writeResult(text){
+            document.getElementById("word").innerText = text
+        }
+
+        function lookUp() {
+
+            setupDictionary()
+
+            let abbreviation = document.getElementById("abbreviation").value
+
+            abbreviation = removeDotIfExists(abbreviation)
+
+
+            if (dictionary.has(abbreviation)) {
+
+                writeResult(dictionary.get(abbreviation)) 
+
+            } else {
+
+                writeResult("Dictionary don't contain that abbreviation")
+            
+            }
+        }
+    </script>
+</body>
+
+</html>

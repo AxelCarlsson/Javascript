@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            <input id="x">
+        </div>
+
+        <div>
+            <input id="y">
+        </div>
+
+        <div>
+            <button onclick="printHello()">Surround</button>
+        </div>
+
+        <div id="result" class="dashed"></div>    
+    </div>
+
+    <script>
+        function printHello(){
+            let textx = document.getElementById("x").value
+            let texty = document.getElementById("y").value
+            document.getElementById("result").innerText = texty + textx + texty
+        }
+    </script>
+</body>
+
+</html>

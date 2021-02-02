@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            <input id="x">
+        </div>
+
+        <div>
+            <input id="y">
+        </div>
+
+        <div>
+            <button onclick="printHello()">=</button>
+        </div>
+
+        <div id="result" class="dashed"></div>    
+    </div>
+
+    <script>
+        function printHello(){
+            let x = document.getElementById("x").value
+            let y = document.getElementById("y").value
+            let x2 = parseFloat(x)
+            let y2 = parseFloat(y)
+            let result = x2 + y2
+            document.getElementById("result").innerText = result
+        }
+    </script>
+</body>
+
+</html>

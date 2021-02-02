@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            <input id="firstNumber">
+        </div>
+
+        <div>
+            <input id="secondNumber">
+        </div>
+
+        <div>
+            <button onclick="between()">Between</button>
+        </div>
+
+        <div id="result" class="dashed"></div>
+    </div>
+
+    <script>
+
+        function isWholeNumber(s) {
+
+            // 3 == "3" true
+            // 3 === "3" false
+
+            return parseInt(s) == s
+        }
+
+        function between() {
+
+            let firstNumber = document.getElementById("firstNumber").value
+            let secondNumber = document.getElementById("secondNumber").value
+
+
+            if (isWholeNumber(firstNumber) === true && isWholeNumber(secondNumber) === true) {
+
+                if (firstNumber > secondNumber) {
+
+                    let z = []
+                    for (let x = firstNumber; x >= secondNumber; x--) {
+                        z.push(x)
+                    }
+
+                    document.getElementById("result").innerText = z.join(' ')
+
+                } else if(firstNumber < secondNumber) {
+
+                    let z = []
+                    for (let x = firstNumber; x <= secondNumber; x++) {
+                        z.push(x)
+                    }
+                    
+                    document.getElementById("result").innerText = z.join(' ')
+                
+                }
+
+
+            } else {
+                document.getElementById("result").innerText = "Endast siffror"
+            }
+
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

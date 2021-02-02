@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script>
+        const vehicles = [
+            { make: 'Honda', model: 'CR-V', type: 'suv', price: 24045 },
+            { make: 'Honda', model: 'Accord', type: 'sedan', price: 22455 },
+            { make: 'Mazda', model: 'Mazda 6', type: 'sedan', price: 24195 },
+            { make: 'Mazda', model: 'CX-9', type: 'suv', price: 31520 },
+            { make: 'Toyota', model: '4Runner', type: 'suv', price: 34210 },
+            { make: 'Toyota', model: 'Sequoia', type: 'suv', price: 45560 },
+            { make: 'Toyota', model: 'Tacoma', type: 'truck', price: 24320 },
+            { make: 'Ford', model: 'F-150', type: 'truck', price: 27110 },
+            { make: 'Ford', model: 'Fusion', type: 'sedan', price: 22120 },
+            { make: 'Ford', model: 'Explorer', type: 'suv', price: 31660 }
+        ];
+
+
+        console.log("Antal bilar", vehicles.length)
+
+        console.log("Total kostnad av alla bilar", sumAllCars(), "kr")
+        console.log("Total kostnad av alla suvar", sumAllSuvs(), "kr")
+
+        console.log("Antalet Toyotas", nrOfToyotas())
+
+        console.log("Tillverkare med stora bokstäver", upperCasedMake())
+        console.log("Tillverkare med stora bokstäver (map)", upperCasedMake_map())
+
+        console.log("Beskrivning av bilar", carDescriptions())
+        console.log("Beskrivning av bilar (map)", carDescriptions_map())
+
+
+        console.log("Pris", carPrices())
+
+        console.log("Snittpris på alla Toyota-bilar", averageToyotaPrice())
+
+
+
+
+        function sumAllCars() {
+
+            let summa = 0
+
+            for (let vehicle of vehicles) {
+                summa += vehicle.price
+            }
+            return summa
+        }
+
+        function sumAllSuvs() {
+
+            let summa = 0
+
+            for (let vehicle of vehicles) {
+                if (vehicle.type === "suv") {
+                    summa += vehicle.price
+                }
+            }
+            return summa
+        }
+
+        function nrOfToyotas() {
+            let count = 0
+            for (let vehicle of vehicles) {
+                if (vehicle.make === "Toyota") {
+                    count++
+                }
+            }
+            return count
+        }
+
+        function upperCasedMake() {
+            let names = []
+            for (let vehicle of vehicles) {
+                let upperCasedCar = vehicle.make.toUpperCase()
+                names.push(upperCasedCar)
+            }
+            return names
+        }
+
+        function upperCasedMake_map(){
+            return vehicles.map(x => x.make.toUpperCase())
+        }
+
+        function carDescriptions() {
+            let descriptions = []
+            for (let vehicle of vehicles) {
+                descriptions.push(`A ${vehicle.make} with a model ${vehicle.model}`)
+            }
+            return descriptions
+        }
+
+        function carDescriptions_map() {
+            return vehicles.map(x => `A ${x.make} with a model ${x.model}`)
+        }
+
+        function carPrices() {
+            let prices = []
+            for (let vehicle of vehicles) {
+                let upperCasedCar = vehicle.model.toUpperCase()
+                prices.push(`This ${vehicle.make} costs ${vehicle.price}kr`)
+            }
+
+            return prices
+        }
+
+        function averageToyotaPrice(){
+            let price = 0
+            let amount = 0
+            for(let vehicle of vehicles){
+                if(vehicle.make === "Toyota"){
+                    price += vehicle.price
+                    amount++
+                }
+            }
+            return Math.round(price / amount)
+        }
+    </script>
+</body>
+
+</html>

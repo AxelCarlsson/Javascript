@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>23</title>
+</head>
+
+<body>
+
+    <div class="row">
+
+        <!-- <img src="images/1.png">
+        <img src="images/2.png">
+        <img src="images/3.png"> -->
+
+        <div>
+            <button onclick="start()">Start</button>
+        </div>
+        <div>
+            <button onclick="stop()">Stop</button>
+        </div>
+
+        
+    </div>
+
+    <div>
+        <img id="image">
+    </div>
+
+    <script>
+
+        let direction = true
+        let counter = 0
+        let x;
+
+
+        function start() {
+
+            x = setInterval(animation, 1000)
+
+        }
+
+        function animation() {
+
+            
+            /* display(counter % 3)
+            
+            if(counter % 3 === 2){
+                counter = 4
+            } else if(counter === 4) {
+                counter--
+            } else{
+                counter++
+            } */
+            
+
+
+            if (direction === true) {
+                if (counter < 3) {
+                    counter++
+                } else {
+                    counter--
+                    direction = false
+                }
+            } else {
+                counter--
+            }
+
+            if (counter === 1) {
+                direction = true
+            }
+
+            display(counter)
+        }
+
+        function display(nr) {
+            document.getElementById("image").src = `images/${nr}.png`
+        }
+
+        function stop() {
+            clearInterval(x)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

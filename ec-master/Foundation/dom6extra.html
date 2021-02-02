@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            <input id="x">
+        </div>
+
+        <div>
+            <input id="y">
+        </div>
+
+        <div>
+            <button onclick="surround()">Surround</button>
+        </div>
+
+        <div id="result" class="dashed"></div>
+    </div>
+
+    <script>
+        function surround() {
+
+            let textx = document.getElementById("x").value
+            let texty = document.getElementById("y").value
+
+            let texty2 = texty.split(' ')
+            let texty3 = texty2.join('')
+
+            if (texty3.length > 1 || texty3.length === 0 || texty3 === " ") {
+
+                document.getElementById("result").innerText = "FEL"
+                document.getElementById("result").style.backgroundColor = "red"
+
+            } else {
+
+                document.getElementById("result").innerText = texty3 + textx + texty3
+                document.getElementById("result").style.backgroundColor = "white"
+
+            }
+
+            /* if (/\s/.test(texty) === true || texty.length > 1) {
+
+                let texty2 = texty.split(' ')
+                let texty3 = texty2.join('')
+
+                if (texty3.length > 1 || texty3.length === 0 || texty3 === " ") {
+
+                    document.getElementById("result").innerText = "FEL"
+                    document.getElementById("result").style.backgroundColor = "red"
+
+                } else {
+
+                    document.getElementById("result").innerText = texty3 + textx + texty3
+                    document.getElementById("result").style.backgroundColor = "white"
+
+                }
+
+            } else {
+
+                document.getElementById("result").innerText = texty + textx + texty
+                document.getElementById("result").style.backgroundColor = "white"
+
+            } */
+
+
+        }
+    </script>
+</body>
+
+</html>

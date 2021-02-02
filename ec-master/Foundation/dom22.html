@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>KAB</title>
+</head>
+
+<body>
+
+    <div class="row">
+        <div>
+            <button onclick="showText(1)">Show text1</button>
+        </div>
+        <div>
+            <button onclick="showText(2)">Show text2</button>
+        </div>
+        <div>
+            <button onclick="showText(3)">Show text3</button>
+        </div>
+        <p id="text1">
+            11111Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, provident est ratione non quod nam cumque
+            atque nostrum, facilis, corrupti
+        </p>
+        <p id="text2">
+            22222velit id eaque sint nihil? Quisquam et magni repellendus eveniet quas eum id laboriosam,
+        </p>
+        <p id="text3">
+            33333vero, cumque, vitae veritatis rerum velit sed autem perspiciatis minus ea iure eos culpa suscipit quaerat?
+        </p>
+
+        <script>
+
+            function hide(elementId){
+                document.getElementById(elementId).style.display = "none"
+            }          
+            
+            function show(elementId){
+                document.getElementById(elementId).style.display = "block"
+            }
+
+            function hideAllText() {
+                hide("text1")
+                hide("text2")
+                hide("text3")
+            }
+            
+            function showText(nr) {
+                hideAllText()
+                show(`text${nr}`)
+            }
+            
+            hideAllText()
+
+        </script>
+</body>
+
+</html>
